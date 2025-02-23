@@ -1,11 +1,13 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Portfolio">
+  <Header variant='h1'>Title 1</Header>
+  <Header variant='h2'>Title 2</Header>
+  <Header variant='h3'>Title 3</Header>
+  <button class="px-2.5 bg-blue hover:bg-blue/90 text-base text-[16px] font-medium">
+    Button
+  </button>
 </Layout>
