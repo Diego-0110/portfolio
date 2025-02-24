@@ -1,22 +1,17 @@
 ---
+import { cn } from '../utils/tailwind'
+
 interface Props {
   variant: 'h1' | 'h2' | 'h3'
 }
 const { variant } = Astro.props
 const Component = variant
-let defaultStyles = 'w-fit text-base font-extrabold leading-[normal]'
-switch (variant) {
-  case 'h1':
-    defaultStyles += " px-6 bg-blue text-4xl before:content-['#_']"
-    break
-  case 'h2':
-    defaultStyles += " px-[15px] bg-maroon text-2xl before:content-['##_']"
-    break
-  case 'h3':
-    defaultStyles += " px-3 bg-peach text-xl before:content-['###_']"
-    break
-}
 ---
-<Component class={defaultStyles}>
+<Component
+  class={cn('w-fit text-base font-extrabold leading-[normal]', {
+    "px-6 bg-blue text-4xl before:content-['#_']": variant === 'h1',
+    "px-[15px] bg-maroon text-2xl before:content-['##_']": variant === 'h2',
+    "px-3 bg-peach text-xl before:content-['###_']": variant === 'h3'
+  })}>
   <slot />
 </Component>
