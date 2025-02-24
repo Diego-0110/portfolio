@@ -1,0 +1,18 @@
+---
+interface AnchorProps extends astroHTML.JSX.AnchorHTMLAttributes {
+
+}
+type Props = AnchorProps
+const props = Astro.props
+---
+<a class="text-blue hover:underline font-medium" {...props}>
+  <slot />
+</a>
+<style>
+a::before {
+  content: '[ '
+}
+a::after {
+  content: ' ](' attr(href) ')'
+}
+</style>

@@ -1,0 +1,25 @@
+---
+interface ButtonProps extends astroHTML.JSX.ButtonHTMLAttributes {
+  variant?: 'primary' | 'outline' | 'ghost'
+  onClick?: () => void
+}
+type Props = ButtonProps
+const { variant = 'primary', ...props } = Astro.props
+let defaultStyles = 'px-2.5 py-[5px] hover:cursor-pointer font-medium'
+switch (variant) {
+  case 'primary':
+    defaultStyles += ' bg-blue hover:bg-lavender text-base'
+  break
+  case 'outline':
+    defaultStyles += ' outline-2 outline-blue -outline-offset-2 hover:bg-blue text-blue hover:text-base'
+  break
+  case 'ghost':
+    defaultStyles += ' bg-transparent hover:bg-surface-1'
+  break
+}
+---
+<button
+  class={defaultStyles}
+  {...props}>
+  <slot />
+</button>
