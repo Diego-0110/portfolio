@@ -4,6 +4,10 @@ import Header from '../components/Header.astro';
 import Button from '../components/Button.astro';
 import Anchor from '../components/Anchor.astro';
 import SubHeader from '../components/SubHeader.astro';
+import Image from '../components/Image.astro';
+import ToggleBadge from '../components/ToggleBadge.astro';
+import Badge from '../components/Badge.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <Layout title="Portfolio">
@@ -15,6 +19,44 @@ import SubHeader from '../components/SubHeader.astro';
   <Button>Button</Button>
   <Button variant='outline'>Button</Button>
   <Button variant='ghost'>Button</Button>
+  <img src="" alt="">
+  <Image src="https://picsum.photos/200" alt="astro"/>
+  <div class="flex flex-wrap gap-2.5 mb-[21px]">
+    <ToggleBadge id='js' variant='yellow'>
+      <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
+      JavaScript
+    </ToggleBadge>
+    <ToggleBadge id='ts' variant='blue'>
+      <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
+      TypeScript
+    </ToggleBadge>
+    <ToggleBadge id='html' variant='red'>
+      <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
+      HTML
+    </ToggleBadge>
+    <ToggleBadge id='css' variant='mauve'>
+      <Icon name="catppuccin:css" size={18} class="**:stroke-current w-5" />
+      CSS
+    </ToggleBadge>
+  </div>
+  <div class="flex flex-wrap gap-2.5">
+    <Badge variant='yellow' class="pr-5">
+      <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
+      JavaScript
+    </Badge>
+    <Badge variant='blue' class="pr-5">
+      <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
+      TypeScript
+    </Badge>
+    <Badge variant='red' class="pr-5">
+      <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
+      HTML
+    </Badge>
+    <Badge variant='mauve' class="pr-5">
+      <Icon name="catppuccin:css" size={18} class="**:stroke-current w-5" />
+      CSS
+    </Badge>
+  </div>
 </Layout>
 <script>
 // Way in Astro to add event handlers

@@ -9,9 +9,9 @@ type Props = ButtonProps
 const { variant = 'primary', ...props } = Astro.props
 ---
 <button
-  class={cn('px-2.5 py-[5px] hover:cursor-pointer font-medium', {
-    'bg-blue hover:bg-lavender text-base': variant === 'primary',
-    'outline-2 outline-blue -outline-offset-2 hover:bg-blue text-blue hover:text-base':
+  class={cn('px-2.5 py-[5px] hover:cursor-pointer text-base font-medium', {
+    'bg-blue hover:bg-lavender text-base-color': variant === 'primary',
+    'outline-2 outline-blue -outline-offset-2 hover:bg-blue text-blue hover:text-base-color':
     variant === 'outline',
     'bg-transparent hover:bg-surface-1': variant === 'ghost'
   })}

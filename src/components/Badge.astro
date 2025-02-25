@@ -1,0 +1,35 @@
+---
+import { cn } from '../utils/tailwind'
+
+type VariantType = 'pink' | 'mauve' | 'red' | 'peach' | 'yellow' | 'green' | 'teal' | 'blue'
+interface LabelProps extends astroHTML.JSX.LabelHTMLAttributes {
+  isLabel: true
+  variant?: VariantType
+}
+interface DefaultProps {
+  isLabel?: false
+  variant?: VariantType
+  class?: string
+}
+type Props = LabelProps | DefaultProps
+const { isLabel = false, variant = 'blue', ...props } = Astro.props
+const Component = isLabel? 'label' : 'span'
+const variantStyles = {
+  'bg-pink': variant === 'pink',
+  'bg-mauve': variant === 'mauve',
+  'bg-red': variant === 'red',
+  'bg-peach': variant === 'peach',
+  'bg-yellow': variant === 'yellow',
+  'bg-green': variant === 'green',
+  'bg-teal': variant === 'teal',
+  'bg-blue': variant === 'blue',
+}
+---
+<Component
+  {...props}
+  class={cn("inline-flex gap-2.5 px-2.5 rounded-full text-base font-bold text-base-color",
+    variantStyles,
+    props.class)}
+>
+  <span class="inline-flex items-center gap-2.5"><slot /></span>
+</Component>

@@ -1,0 +1,31 @@
+---
+import type { ComponentProps } from 'astro/types';
+import Badge from './Badge.astro';
+interface Props {
+  id: string
+  name?: string
+  variant?: ComponentProps<typeof Badge>['variant']
+}
+const { id, name, variant } = Astro.props
+---
+<div class="inline-flex">
+  <input id={id} name={name} class="peer" type="checkbox" hidden>
+  <!-- TODO: accessibility with focus -->
+  <Badge
+    variant={variant}
+    role="button"
+    class="select-none cursor-pointer peer-not-checked:bg-transparent peer-not-checked:text-subtext-0 peer-not-checked:font-medium"
+    isLabel for={id} tabindex="0"
+  >
+    <slot />
+  </Badge>
+</div>
+<style>
+input:checked + label::after {
+  content: ' ✕';
+}
+label::after {
+  content: ' +';
+  font-weight: lighter;
+}
+</style>

@@ -1,0 +1,10 @@
+---
+interface Props extends astroHTML.JSX.ImgHTMLAttributes {
+
+}
+const props = Astro.props
+---
+<div>
+  <img {...props}>
+  <p class="text-sm text-subtext-0">[ {props.alt} ](...)</p>
+</div>

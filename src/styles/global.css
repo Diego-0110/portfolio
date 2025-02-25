@@ -26,18 +26,20 @@
   --color-surface-2: #494D64;
   --color-surface-1: #363A4F;
   --color-surface-0: #24273A;
-  --color-base: #181926;
+  --color-base-color: #181926;
   --color-mantle: #181825;
   --color-crust: #11111B;
+
+  --tw-leading: normal;
 }
 
 :root {
   font-family: "JetBrains Mono", monospace, serif;
   font-optical-sizing: auto;
   font-size: 16px;
-  color: var(--color-text)
+  color: var(--color-text);
 }
 
 html {
-  background-color: var(--color-base);
+  background-color: var(--color-base-color);
 }
