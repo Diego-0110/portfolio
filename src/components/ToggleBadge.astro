@@ -14,7 +14,7 @@ const { id, name, variant } = Astro.props
   <Badge
     variant={variant}
     role="button"
-    class="select-none cursor-pointer peer-not-checked:bg-transparent peer-not-checked:text-subtext-0 peer-not-checked:font-medium"
+    class="select-none cursor-pointer peer-not-checked:bg-transparent peer-not-checked:text-subtext-0 peer-not-checked:font-medium peer-checked:hover:opacity-85 peer-not-checked:hover:text-text"
     isLabel for={id} tabindex="0"
   >
     <slot />

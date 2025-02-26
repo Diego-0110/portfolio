@@ -1,0 +1,16 @@
+---
+import Header from './Header.astro';
+import Separator from './Separator.astro';
+interface Props {
+  title: string
+  isFirst?: boolean
+}
+const { title, isFirst = false } = Astro.props
+---
+<section class="relative pt-24 pb-8">
+  {!isFirst && <Separator level="h2" class='absolute top-0 right-0 left-0' />}
+  <Header variant='h2' class="mb-6">{title}</Header>
+  <main>
+    <slot />
+  </main>
+</section>

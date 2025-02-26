@@ -1,0 +1,25 @@
+---
+import type { ComponentProps } from 'astro/types';
+import Card from './Card.astro';
+interface Props extends ComponentProps<typeof Card> {
+  date: string
+}
+const { date, ...props } = Astro.props
+---
+<!-- TODO: fix spaces -->
+<div class="space-y-5 ml-3 py-6 pl-6 border-l-2 border-overlay-1">
+  <p class="relative text-base text-subtext-0 font-medium">
+    {date}
+  </p>
+  <Card {...props}>
+    <slot />
+  </Card>
+</div>
+<style>
+p::before {
+  position: absolute;
+  left: -34.5px;
+  content: '██';
+  color: var(--color-overlay-1);
+}
+</style>

@@ -1,0 +1,37 @@
+---
+import { cn } from '../utils/tailwind';
+interface Props {
+  class?: string
+  level: 'h1' | 'h2'
+}
+const { class: classStr = '', level } = Astro.props
+---
+<p role="separator" data-level={level}
+  class={'separator ' + cn(
+    "select-none text-subtext-0 font-bold text-nowrap overflow-hidden",
+    { 'text-4xl': level === 'h1', 'text-2xl': level === 'h2'},
+    classStr,
+  )}>
+  ------------
+</p>
+<script>
+// TODO: solve scroll space problem in first render
+const CHAR_WIDTH: Record<string, number> = {
+  h1: 21.6,
+  h2: 14.4
+}
+function changeTextContent () {
+  const separators = document.querySelectorAll('.separator')
+  for (let i = 0; i < separators.length; i++) {
+    const separator = separators[i]
+    const level = separator.getAttribute('data-level')
+    let num = 3
+    if (level && CHAR_WIDTH[level] !== undefined) {
+      num = separator.clientWidth / CHAR_WIDTH[level]
+    }
+    separator.textContent = '-'.repeat(Math.floor(num))
+  }
+}
+changeTextContent()
+window.addEventListener('resize', changeTextContent)
+</script>

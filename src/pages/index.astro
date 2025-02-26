@@ -8,6 +8,9 @@ import Image from '../components/Image.astro';
 import ToggleBadge from '../components/ToggleBadge.astro';
 import Badge from '../components/Badge.astro';
 import { Icon } from 'astro-icon/components';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import Chronology from '../components/Chronology.astro';
 ---
 
 <Layout title="Portfolio">
@@ -57,6 +60,21 @@ import { Icon } from 'astro-icon/components';
       CSS
     </Badge>
   </div>
+  <Section title='Section 1' isFirst>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis iste laboriosam nemo itaque eum quae, alias beatae quos asperiores voluptate at accusamus nobis in vel labore natus doloremque repellat tempora.</p>
+  </Section>
+  <Section title='Section 2'>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis iste laboriosam nemo itaque eum quae, alias beatae quos asperiores voluptate at accusamus nobis in vel labore natus doloremque repellat tempora.</p>
+  </Section>
+  <Card title="Card 1" subTitle="Subtitle">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur delectus alias neque, expedita doloremque repudiandae fugiat quia sed asperiores fuga. Reprehenderit, consequuntur. Earum esse, quaerat consequuntur sint eum eius ut?</p>
+  </Card>
+  <Chronology title="Chrono 1" subTitle="Subtitle" date="Feb. - Jun. 2024">
+    ...
+  </Chronology>
+  <Chronology title="Chrono 2" date="Feb. - Jul. 2024">
+    ...
+  </Chronology>
 </Layout>
 <script>
 // Way in Astro to add event handlers

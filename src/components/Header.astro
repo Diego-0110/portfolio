@@ -3,8 +3,9 @@ import { cn } from '../utils/tailwind'
 
 interface Props {
   variant: 'h1' | 'h2' | 'h3'
+  class?: string
 }
-const { variant } = Astro.props
+const { variant, ...props } = Astro.props
 const Component = variant
 ---
 <Component
@@ -12,6 +13,6 @@ const Component = variant
     "px-6 bg-blue text-4xl before:content-['#_']": variant === 'h1',
     "px-[15px] bg-maroon text-2xl before:content-['##_']": variant === 'h2',
     "px-3 bg-peach text-xl before:content-['###_']": variant === 'h3'
-  })}>
+  }, props.class)}>
   <slot />
 </Component>
