@@ -1,13 +1,18 @@
 ---
 import type { ComponentProps } from 'astro/types';
 import Card from './Card.astro';
+import { cn } from '../utils/tailwind';
 interface Props extends ComponentProps<typeof Card> {
   date: string
+  ellipsis?: boolean // Add a dashed line at the end
 }
-const { date, ...props } = Astro.props
+const { date, ellipsis = false, ...props } = Astro.props
 ---
-<!-- TODO: fix spaces -->
-<div class="space-y-5 ml-3 py-6 pl-6 border-l-2 border-overlay-1">
+<div
+  class={cn(
+    { 'ellipsis': ellipsis },
+    "relative space-y-5 ml-2.5 py-5 pl-5"
+  )}>
   <p class="relative text-base text-subtext-0 font-medium">
     {date}
   </p>
@@ -16,10 +21,30 @@ const { date, ...props } = Astro.props
   </Card>
 </div>
 <style>
+div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  width: 2px;
+  background-color: var(--color-overlay-1);
+}
+div.ellipsis::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -1px;
+  height: 20px;
+  border: 2px dashed var(--color-base-color);
+}
 p::before {
   position: absolute;
-  left: -34.5px;
-  content: '██';
-  color: var(--color-overlay-1);
+  top: 0;
+  bottom: 0;
+  left: -30px;
+  content: '';
+  width: 20px;
+  background-color: var(--color-overlay-1);
 }
 </style>

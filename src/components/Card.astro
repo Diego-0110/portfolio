@@ -1,16 +1,38 @@
 ---
 import Header from './Header.astro';
 import SubHeader from './SubHeader.astro';
+import Image from './Image.astro';
+import type { ComponentProps } from 'astro/types';
+import { cn } from '../utils/tailwind';
 interface Props {
   title: string
   subTitle?: string
+  img?: ComponentProps<typeof Image>
 }
-const { title, subTitle } = Astro.props
+const { title, subTitle, img } = Astro.props
 ---
-<div class="p-3 bg-surface-0">
-  <Header variant="h3" class="mb-3">{title}</Header>
-  {subTitle && <SubHeader>{subTitle}</SubHeader>}
-  <div class="mt-7 text-subtext-1">
-    <slot />
-  </div>
+<div
+  class={cn(
+    "p-3 bg-surface-0",
+    { 'flex max-sm:flex-col gap-3': img }
+  )}>
+  {img ?
+  <Fragment>
+    <Image src='https://picsum.photos/200' alt='Photo' class="min-w-56 max-h-56 max-sm:w-full object-cover" />
+    <div>
+      <Header variant="h3" class="mb-3">{title}</Header>
+      {subTitle && <SubHeader>{subTitle}</SubHeader>}
+      <div class="mt-7 text-subtext-1">
+        <slot />
+      </div>
+    </div>
+  </Fragment> :
+  <Fragment>
+    <Header variant="h3" class="mb-3">{title}</Header>
+    {subTitle && <SubHeader>{subTitle}</SubHeader>}
+    <div class="mt-7 text-subtext-1">
+      <slot />
+    </div>
+  </Fragment>
+  }
 </div>
