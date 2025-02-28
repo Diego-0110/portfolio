@@ -11,6 +11,7 @@ import { Icon } from 'astro-icon/components';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import Chronology from '../components/Chronology.astro';
+import { getDateIntervalStr } from '../utils/date';
 ---
 
 <Layout title="Portfolio">
@@ -69,7 +70,12 @@ import Chronology from '../components/Chronology.astro';
   <Card title="Card 1" subTitle="Subtitle" img={{src: '', alt: ''}}>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur delectus alias neque, expedita doloremque repudiandae fugiat quia sed asperiores fuga. Reprehenderit, consequuntur. Earum esse, quaerat consequuntur sint eum eius ut?</p>
   </Card>
-  <Chronology title="Chrono 1" subTitle="Subtitle" date="Feb. - Jun. 2024">
+  <Chronology title="Chrono 1" subTitle="Subtitle"
+    date={getDateIntervalStr({
+      dateStart: { month: 1, year: 2024 },
+      dateEnd: { month: 6, year: 2024 },
+      locale: 'es-ES'
+    })}>
     ...
   </Chronology>
   <Chronology title="Chrono 2" date="Feb. - Jul. 2024" ellipsis>
