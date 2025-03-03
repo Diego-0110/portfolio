@@ -1,0 +1,15 @@
+---
+import Section from '../components/Section.astro';
+import Chronology from '../components/Chronology.astro';
+import { getDateIntervalStr } from '../utils/date';
+---
+<Section title="Experience" isFirst>
+  <Chronology title="Work 2" subTitle="Role"
+    date={getDateIntervalStr({
+      dateStart: { month: 1, year: 2024 },
+      dateEnd: { month: 6, year: 2024 },
+      locale: 'es-ES'
+    })}>
+    Description...
+  </Chronology>
+</Section>

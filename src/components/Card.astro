@@ -14,23 +14,23 @@ const { title, subTitle, img } = Astro.props
 <div
   class={cn(
     "p-3 bg-surface-0",
-    { 'flex max-sm:flex-col gap-3': img }
+    { 'flex max-sm:flex-col gap-3 max-sm:gap-0': img }
   )}>
   {img ?
   <Fragment>
-    <Image src='https://picsum.photos/200' alt='Photo' class="min-w-56 max-h-56 max-sm:w-full object-cover" />
+    <Image src={img.src} alt={img.alt} class="min-w-56 h-56 max-sm:w-full object-cover" />
     <div>
-      <Header variant="h3" class="mb-3">{title}</Header>
-      {subTitle && <SubHeader>{subTitle}</SubHeader>}
+      <Header variant="h3" class="mb-3 max-sm:mb-0">{title}</Header>
+      {subTitle && <SubHeader variant="h3">{subTitle}</SubHeader>}
       <div class="mt-7 text-subtext-1">
         <slot />
       </div>
     </div>
   </Fragment> :
   <Fragment>
-    <Header variant="h3" class="mb-3">{title}</Header>
-    {subTitle && <SubHeader>{subTitle}</SubHeader>}
-    <div class="mt-7 text-subtext-1">
+    <Header variant="h3" class="mb-3 max-sm:mb-0">{title}</Header>
+    {subTitle && <SubHeader variant="h3">{subTitle}</SubHeader>}
+    <div class="mt-7 max-sm:mt-6 text-subtext-1">
       <slot />
     </div>
   </Fragment>

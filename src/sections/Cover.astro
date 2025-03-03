@@ -1,18 +1,18 @@
 ---
 import Header from '../components/Header.astro';
+import SubHeader from '../components/SubHeader.astro';
 import Separator from '../components/Separator.astro';
 ---
 <section class="relative pt-28 pb-36 px-3 bg-surface-0">
   <div class="max-w-4xl mx-auto">
-    <Header variant="h1" class="max-sm:text-3xl inline box-decoration-clone">
+    <Header variant="h1">
       Diego Quiroga Jaldín
-    </Header><br>
-    <p
-      class="inline w-fit text-base-color font-extrabold px-6 bg-teal text-3xl max-sm:text-2xl before:content-['**_'] after:content-['_**'] box-decoration-clone"
-    >
-      Front-end Developer<br>
+    </Header>
+    <SubHeader variant="h1">
+      Front-end Developer
+      <br>
       && Computer Scientist
-    </p>
+    </SubHeader>
     <Separator level="h1" class="absolute bottom-0 left-0 right-0" />
   </div>
 </section>

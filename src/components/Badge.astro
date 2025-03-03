@@ -1,7 +1,8 @@
 ---
 import { cn } from '../utils/tailwind'
 
-type VariantType = 'pink' | 'mauve' | 'red' | 'peach' | 'yellow' | 'green' | 'teal' | 'blue'
+type VariantType = 'pink' | 'mauve' | 'red' | 'peach' | 'yellow' | 'green' | 'teal' | 'blue' |
+'lavender'
 interface LabelProps extends astroHTML.JSX.LabelHTMLAttributes {
   isLabel: true
   variant?: VariantType
@@ -23,6 +24,7 @@ const variantStyles = {
   'bg-green': variant === 'green',
   'bg-teal': variant === 'teal',
   'bg-blue': variant === 'blue',
+  'bg-lavender': variant === 'lavender'
 }
 ---
 <Component

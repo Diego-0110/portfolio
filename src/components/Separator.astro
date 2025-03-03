@@ -9,16 +9,16 @@ const { class: classStr = '', level } = Astro.props
 <p role="separator" data-level={level}
   class={'separator ' + cn(
     "select-none text-subtext-0 font-bold text-nowrap overflow-hidden",
-    { 'text-4xl': level === 'h1', 'text-2xl': level === 'h2'},
+    { 'text-4xl max-sm:text-3xl': level === 'h1', 'text-2xl max-sm:text-xl': level === 'h2'},
     classStr,
   )}>
   ------------
 </p>
 <script>
 // TODO: solve scroll space problem in first render
-const CHAR_WIDTH: Record<string, number> = {
-  h1: 21.6,
-  h2: 14.4
+const CHAR_WIDTH: Record<string, { 'default': number, 'sm': number }> = {
+  h1: { default: 21.6, sm: 18 },
+  h2: { default: 14.4, sm: 12 }
 }
 function changeTextContent () {
   const separators = document.querySelectorAll('.separator')
@@ -27,7 +27,9 @@ function changeTextContent () {
     const level = separator.getAttribute('data-level')
     let num = 3
     if (level && CHAR_WIDTH[level] !== undefined) {
-      num = separator.clientWidth / CHAR_WIDTH[level]
+      const charWidth = separator.clientWidth > 640?
+        CHAR_WIDTH[level].default : CHAR_WIDTH[level].sm
+      num = separator.clientWidth / charWidth
     }
     separator.textContent = '-'.repeat(Math.floor(num))
   }

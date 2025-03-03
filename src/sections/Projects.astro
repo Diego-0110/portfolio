@@ -1,0 +1,49 @@
+---
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import ToggleBadge from '../components/ToggleBadge.astro';
+import { Icon } from 'astro-icon/components';
+import SubHeader from '../components/SubHeader.astro';
+---
+<Section title="Projects">
+  <div>
+    <SubHeader variant="h3" class="mb-[21px]">Languages</SubHeader>
+    <div class="flex flex-wrap gap-2.5 mb-[21px]">
+      <ToggleBadge id='js' variant='yellow'>
+        <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
+        JavaScript
+      </ToggleBadge>
+      <ToggleBadge id='ts' variant='blue'>
+        <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
+        TypeScript
+      </ToggleBadge>
+      <ToggleBadge id='html' variant='red'>
+        <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
+        HTML
+      </ToggleBadge>
+      <ToggleBadge id='css' variant='mauve'>
+        <Icon name="catppuccin:css" size={18} class="**:stroke-current w-5" />
+        CSS
+      </ToggleBadge>
+    </div>
+    <SubHeader variant="h3" class="mb-[21px]">Frameworks</SubHeader>
+    <div class="flex flex-wrap gap-2.5 mb-[21px]">
+      <ToggleBadge id='next' variant="lavender">
+        <Icon name="catppuccin:next" size={18} class="**:stroke-current w-5" />
+        Next JS
+      </ToggleBadge>
+      <ToggleBadge id='astro' variant='red'>
+        <Icon name="catppuccin:astro" size={18} class="**:stroke-current w-5" />
+        Astro
+      </ToggleBadge>
+      <ToggleBadge id='remix' variant='lavender'>
+        <Icon name="catppuccin:remix" size={18} class="**:stroke-current w-5" />
+        Remix
+      </ToggleBadge>
+    </div>
+  </div>
+  <Card title="Project 1" subTitle="Subtitle"
+    img={{ src: 'https://picsum.photos/200', alt: 'Photo' }}>
+    Description...
+  </Card>
+</Section>

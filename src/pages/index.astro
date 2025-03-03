@@ -13,14 +13,20 @@ import Card from '../components/Card.astro';
 import Chronology from '../components/Chronology.astro';
 import { getDateIntervalStr } from '../utils/date';
 import Cover from '../sections/Cover.astro';
+import Experience from '../sections/Experience.astro';
+import Education from '../sections/Education.astro';
+import Projects from '../sections/Projects.astro';
 ---
 
 <Layout title="Portfolio">
   <Cover />
+  <Experience />
+  <Education />
+  <Projects />
   <Header variant='h1'>Title 1</Header>
   <Header variant='h2'>Title 2</Header>
   <Header variant='h3'>Title 3</Header>
-  <SubHeader>Important</SubHeader>
+  <SubHeader variant="h2">Important</SubHeader>
   <Anchor href="/afs">asfa</Anchor>
   <Button>Button</Button>
   <Button variant='outline'>Button</Button>
@@ -69,7 +75,7 @@ import Cover from '../sections/Cover.astro';
   <Section title='Section 2'>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis iste laboriosam nemo itaque eum quae, alias beatae quos asperiores voluptate at accusamus nobis in vel labore natus doloremque repellat tempora.</p>
   </Section>
-  <Card title="Card 1" subTitle="Subtitle" img={{src: '', alt: ''}}>
+  <Card title="Card 1" subTitle="Subtitle" img={{src: 'https://picsum.photos/200', alt: 'photo'}}>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur delectus alias neque, expedita doloremque repudiandae fugiat quia sed asperiores fuga. Reprehenderit, consequuntur. Earum esse, quaerat consequuntur sint eum eius ut?</p>
   </Card>
   <Chronology title="Chrono 1" subTitle="Subtitle"

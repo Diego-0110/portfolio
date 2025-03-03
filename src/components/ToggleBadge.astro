@@ -5,11 +5,12 @@ interface Props {
   id: string
   name?: string
   variant?: ComponentProps<typeof Badge>['variant']
+  defaultChecked?: boolean
 }
-const { id, name, variant } = Astro.props
+const { id, name, variant, defaultChecked = true } = Astro.props
 ---
 <div class="inline-flex">
-  <input id={id} name={name} class="peer" type="checkbox" hidden>
+  <input id={id} name={name} class="peer" type="checkbox" hidden checked={defaultChecked}>
   <!-- TODO: accessibility with focus -->
   <Badge
     variant={variant}
