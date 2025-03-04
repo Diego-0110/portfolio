@@ -1,0 +1,28 @@
+---
+import { cn } from '../utils/tailwind'
+
+interface Props {
+  variant?: 'hyphen' | 'plus' | 'asterisk' | 'ordered'
+  items: string[]
+  size?: 'lg' | 'base'
+  class?: string
+}
+const { variant = 'hyphen', items, size = 'base', class: className } = Astro.props
+const Component = variant === 'ordered' ? 'ol' : 'ul'
+---
+<Component class={cn(
+  'list-inside',
+  {
+    "list-['-_']": variant === 'hyphen',
+    "list-['+_']": variant === 'plus',
+    "list-['*_']": variant === 'asterisk',
+    'list-decimal': variant === 'ordered'
+  },
+  {
+    'text-lg font-bold': size === 'lg',
+    'text-base': size === 'base'
+  },
+  className
+)}>
+  {items.map((i) => <li>{i}</li>)}
+</Component>

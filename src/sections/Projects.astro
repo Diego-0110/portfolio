@@ -4,6 +4,7 @@ import Card from '../components/Card.astro';
 import ToggleBadge from '../components/ToggleBadge.astro';
 import { Icon } from 'astro-icon/components';
 import SubHeader from '../components/SubHeader.astro';
+import Anchor from '../components/Anchor.astro';
 ---
 <Section title="Projects">
   <div>
@@ -44,6 +45,9 @@ import SubHeader from '../components/SubHeader.astro';
   </div>
   <Card title="Project 1" subTitle="Subtitle"
     img={{ src: 'https://picsum.photos/200', alt: 'Photo' }}>
-    Description...
+    <p class="text-base">
+      Description...
+    </p>
+    <Anchor href="#">More...</Anchor>
   </Card>
 </Section>

@@ -19,10 +19,10 @@ const { title, subTitle, img } = Astro.props
   {img ?
   <Fragment>
     <Image src={img.src} alt={img.alt} class="min-w-56 h-56 max-sm:w-full object-cover" />
-    <div>
+    <div class="flex-1">
       <Header variant="h3" class="mb-3 max-sm:mb-0">{title}</Header>
       {subTitle && <SubHeader variant="h3">{subTitle}</SubHeader>}
-      <div class="mt-7 text-subtext-1">
+      <div class="mt-7 max-sm:mt-6 text-subtext-1">
         <slot />
       </div>
     </div>
