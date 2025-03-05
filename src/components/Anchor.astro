@@ -1,18 +1,24 @@
 ---
+import { cn } from '../utils/tailwind'
+
 interface AnchorProps extends astroHTML.JSX.AnchorHTMLAttributes {
 
 }
 type Props = AnchorProps
 const props = Astro.props
 ---
-<a class="text-blue hover:underline font-medium" {...props}>
+<a {...props}
+  class={cn(
+    "text-base font-medium text-blue hover:underline",
+    props.class
+  )}>
   <slot />
 </a>
 <style>
 a::before {
-  content: '[ '
+  content: '[ ';
 }
 a::after {
-  content: ' ](' attr(href) ')'
+  content: ' ](' attr(href) ')';
 }
 </style>

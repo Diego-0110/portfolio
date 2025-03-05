@@ -11,13 +11,13 @@ const { title, isFirst = false, class: className } = Astro.props
 ---
 <section
   class={cn(
-    "relative pt-16 pb-8 max-sm:pt-[54px] max-sm:pb-[27px] px-3",
+    "relative text-2xl max-sm:text-xl pt-hch-2 pb-hch",
     className
   )}>
-  <div class="relative max-w-3xl mx-auto">
-    {!isFirst &&
-    <Separator level="h2" class='absolute -top-16 max-sm:-top-[54px] right-0 left-0' />}
-    <Header variant='h2' class="mb-8 max-sm:mb-[27px]">{title}</Header>
+  {!isFirst &&
+  <Separator level="h2" class="absolute top-0 right-0 left-0" />}
+  <Header variant="h2" class="mb-hch">{title}</Header>
+  <div class="text-base">
     <slot />
   </div>
 </section>

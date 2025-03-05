@@ -1,17 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Button from '../components/Button.astro';
-import Anchor from '../components/Anchor.astro';
-import SubHeader from '../components/SubHeader.astro';
-import Image from '../components/Image.astro';
-import ToggleBadge from '../components/ToggleBadge.astro';
-import Badge from '../components/Badge.astro';
-import { Icon } from 'astro-icon/components';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import Chronology from '../components/Chronology.astro';
-import { getDateIntervalStr } from '../utils/date';
 import Cover from '../sections/Cover.astro';
 import Experience from '../sections/Experience.astro';
 import Education from '../sections/Education.astro';
@@ -19,78 +7,12 @@ import Projects from '../sections/Projects.astro';
 ---
 
 <Layout title="Portfolio">
-  <Cover />
-  <Experience />
-  <Education />
-  <Projects />
-  <Header variant='h1'>Title 1</Header>
-  <Header variant='h2'>Title 2</Header>
-  <Header variant='h3'>Title 3</Header>
-  <SubHeader variant="h2">Important</SubHeader>
-  <Anchor href="/afs">asfa</Anchor>
-  <Button>Button</Button>
-  <Button variant='outline'>Button</Button>
-  <Button variant='ghost'>Button</Button>
-  <img src="" alt="">
-  <Image src="https://picsum.photos/200" alt="astro"/>
-  <div class="flex flex-wrap gap-2.5 mb-[21px]">
-    <ToggleBadge id='js' variant='yellow'>
-      <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
-      JavaScript
-    </ToggleBadge>
-    <ToggleBadge id='ts' variant='blue'>
-      <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
-      TypeScript
-    </ToggleBadge>
-    <ToggleBadge id='html' variant='red'>
-      <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
-      HTML
-    </ToggleBadge>
-    <ToggleBadge id='css' variant='mauve'>
-      <Icon name="catppuccin:css" size={18} class="**:stroke-current w-5" />
-      CSS
-    </ToggleBadge>
-  </div>
-  <div class="flex flex-wrap gap-2.5">
-    <Badge variant='yellow' class="pr-5">
-      <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
-      JavaScript
-    </Badge>
-    <Badge variant='blue' class="pr-5">
-      <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
-      TypeScript
-    </Badge>
-    <Badge variant='red' class="pr-5">
-      <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
-      HTML
-    </Badge>
-    <Badge variant='mauve' class="pr-5">
-      <Icon name="catppuccin:css" size={18} class="**:stroke-current w-5" />
-      CSS
-    </Badge>
-  </div>
-  <Section title='Section 1' isFirst>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis iste laboriosam nemo itaque eum quae, alias beatae quos asperiores voluptate at accusamus nobis in vel labore natus doloremque repellat tempora.</p>
-  </Section>
-  <Section title='Section 2'>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis iste laboriosam nemo itaque eum quae, alias beatae quos asperiores voluptate at accusamus nobis in vel labore natus doloremque repellat tempora.</p>
-  </Section>
-  <Card title="Card 1" subTitle="Subtitle" img={{src: 'https://picsum.photos/200', alt: 'photo'}}>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur delectus alias neque, expedita doloremque repudiandae fugiat quia sed asperiores fuga. Reprehenderit, consequuntur. Earum esse, quaerat consequuntur sint eum eius ut?</p>
-  </Card>
-  <Chronology title="Chrono 1" subTitle="Subtitle"
-    date={getDateIntervalStr({
-      dateStart: { month: 1, year: 2024 },
-      dateEnd: { month: 6, year: 2024 },
-      locale: 'es-ES'
-    })}>
-    ...
-  </Chronology>
-  <Chronology title="Chrono 2" date="Feb. - Jul. 2024" ellipsis>
-    ...
-  </Chronology>
+  <main class="pb-hch-2">
+    <Cover />
+    <div class="max-w-3xl mx-auto px-ch-2">
+      <Experience />
+      <Education />
+      <Projects />
+    </div>
+  </main>
 </Layout>
-<script>
-// Way in Astro to add event handlers
-document.querySelector('#main-btn')?.addEventListener('click', () => console.log('main'))
-</script>

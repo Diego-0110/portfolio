@@ -7,14 +7,21 @@ interface Props {
 }
 const { variant, ...props } = Astro.props
 ---
-<p class={cn({ 'mr-6': variant === 'h1' }, props.class)}>
+<p
+  class={cn(
+    {
+      'mr-6 text-3xl max-sm:text-2xl text-base-color': variant === 'h1',
+      'text-lg max-sm:text-base': variant === 'h2' || variant === 'h3',
+    },
+    props.class
+  )}>
   <strong
     class={cn(
       "before:content-['**_'] after:content-['_**']",
       {
-        'px-6 text-3xl max-sm:text-2xl max-sm:px-[18px] bg-teal font-extrabold text-base-color box-decoration-clone':
+        'px-ch bg-teal font-extrabold box-decoration-clone':
         variant === 'h1',
-        'text-lg max-sm:text-base font-bold':
+        'font-bold':
         variant === 'h2' || variant === 'h3',
       },
     )}

@@ -8,14 +8,23 @@ interface Props {
 const { variant, ...props } = Astro.props
 const Component = variant
 ---
-<Component class={cn('mr-6', props.class)}>
+<Component
+  class={cn(
+    'mr-6 text-base-color font-extrabold',
+    {
+      'text-4xl max-sm:text-3xl': variant === 'h1',
+      'text-2xl max-sm:text-xl': variant === 'h2',
+      'text-xl max-sm:text-lg': variant === 'h3',
+    },
+    props.class
+  )}>
   <span
-    class={cn('w-fit text-base-color font-extrabold box-decoration-clone', {
-      "px-6 bg-blue text-4xl max-sm:text-3xl max-sm:px-[18px] before:content-['#_']":
+    class={cn('px-ch box-decoration-clone', {
+      "bg-blue before:content-['#_']":
       variant === 'h1',
-      "px-[18px] bg-maroon text-2xl max-sm:text-xl max-sm:px-[15px] before:content-['##_']":
+      "bg-maroon before:content-['##_']":
       variant === 'h2',
-      "px-[15px] bg-peach text-xl max-sm:text-lg max-sm:px-3.5 before:content-['###_']":
+      "bg-peach before:content-['###_']":
       variant === 'h3'
     })}
   >

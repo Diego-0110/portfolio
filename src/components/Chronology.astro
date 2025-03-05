@@ -11,7 +11,7 @@ const { date, ellipsis = false, ...props } = Astro.props
 <div
   class={cn(
     { 'ellipsis': ellipsis },
-    "relative space-y-5 ml-2.5 py-5 pl-5"
+    "relative text-base space-y-hch ml-ch py-hch pl-ch-2"
   )}>
   <p class="relative text-base text-subtext-0 font-medium">
     {date}
@@ -21,6 +21,7 @@ const { date, ellipsis = false, ...props } = Astro.props
   </Card>
 </div>
 <style>
+/* Line */
 div::before {
   content: '';
   position: absolute;
@@ -30,21 +31,23 @@ div::before {
   width: 2px;
   background-color: var(--color-overlay-1);
 }
+/* Dashed line at the end */
 div.ellipsis::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: -1px;
-  height: 20px;
+  height: var(--spacing-hch);
   border: 2px dashed var(--color-base-color);
 }
+/* Marker */
 p::before {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -30px;
+  left: -3ch;
   content: '';
-  width: 20px;
+  width: 2ch;
   background-color: var(--color-overlay-1);
 }
 </style>

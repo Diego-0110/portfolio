@@ -5,30 +5,31 @@ import ToggleBadge from '../components/ToggleBadge.astro';
 import { Icon } from 'astro-icon/components';
 import SubHeader from '../components/SubHeader.astro';
 import Anchor from '../components/Anchor.astro';
+import Badge from '../components/Badge.astro';
 ---
 <Section title="Projects">
   <div>
-    <SubHeader variant="h3" class="mb-[21px]">Languages</SubHeader>
-    <div class="flex flex-wrap gap-2.5 mb-[21px]">
+    <SubHeader variant="h3">Languages</SubHeader>
+    <div class="flex flex-wrap gap-ch my-hch">
       <ToggleBadge id='js' variant='yellow'>
-        <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
+        <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-ch-2" />
         JavaScript
       </ToggleBadge>
       <ToggleBadge id='ts' variant='blue'>
-        <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
+        <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-ch-2" />
         TypeScript
       </ToggleBadge>
       <ToggleBadge id='html' variant='red'>
-        <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
+        <Icon name="catppuccin:html" size={18} class="**:stroke-current w-ch-2" />
         HTML
       </ToggleBadge>
       <ToggleBadge id='css' variant='mauve'>
-        <Icon name="catppuccin:css" size={18} class="**:stroke-current w-5" />
+        <Icon name="catppuccin:css" size={18} class="**:stroke-current w-ch-2" />
         CSS
       </ToggleBadge>
     </div>
-    <SubHeader variant="h3" class="mb-[21px]">Frameworks</SubHeader>
-    <div class="flex flex-wrap gap-2.5 mb-[21px]">
+    <SubHeader variant="h3" >Frameworks</SubHeader>
+    <div class="flex flex-wrap gap-ch my-hch">
       <ToggleBadge id='next' variant="lavender">
         <Icon name="catppuccin:next" size={18} class="**:stroke-current w-5" />
         Next JS
@@ -45,9 +46,28 @@ import Anchor from '../components/Anchor.astro';
   </div>
   <Card title="Project 1" subTitle="Subtitle"
     img={{ src: 'https://picsum.photos/200', alt: 'Photo' }}>
-    <p class="text-base">
+    <div class="flex flex-wrap gap-ch">
+      <Badge variant='yellow' class="pr-ch-2">
+        <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
+        JavaScript
+      </Badge>
+      <Badge variant='blue' class="pr-ch-2">
+        <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
+        TypeScript
+      </Badge>
+      <Badge variant='red' class="pr-ch-2">
+        <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
+        HTML
+      </Badge>
+      <Badge variant='lavender'>
+        ...
+      </Badge>
+    </div>
+    <p class="mt-hch">
       Description...
     </p>
-    <Anchor href="#">More...</Anchor>
+    <p class="mt-hch">
+      <Anchor href="#">More...</Anchor>
+    </p>
   </Card>
 </Section>
