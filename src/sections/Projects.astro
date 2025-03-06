@@ -6,43 +6,23 @@ import { Icon } from 'astro-icon/components';
 import SubHeader from '../components/SubHeader.astro';
 import Anchor from '../components/Anchor.astro';
 import Badge from '../components/Badge.astro';
+import { groupedTags } from '../constants/tags';
 ---
 <Section title="Projects">
   <div>
-    <SubHeader variant="h3">Languages</SubHeader>
-    <div class="flex flex-wrap gap-ch my-hch">
-      <ToggleBadge id='js' variant='yellow'>
-        <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-ch-2" />
-        JavaScript
-      </ToggleBadge>
-      <ToggleBadge id='ts' variant='blue'>
-        <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-ch-2" />
-        TypeScript
-      </ToggleBadge>
-      <ToggleBadge id='html' variant='red'>
-        <Icon name="catppuccin:html" size={18} class="**:stroke-current w-ch-2" />
-        HTML
-      </ToggleBadge>
-      <ToggleBadge id='css' variant='mauve'>
-        <Icon name="catppuccin:css" size={18} class="**:stroke-current w-ch-2" />
-        CSS
-      </ToggleBadge>
-    </div>
-    <SubHeader variant="h3" >Frameworks</SubHeader>
-    <div class="flex flex-wrap gap-ch my-hch">
-      <ToggleBadge id='next' variant="lavender">
-        <Icon name="catppuccin:next" size={18} class="**:stroke-current w-5" />
-        Next JS
-      </ToggleBadge>
-      <ToggleBadge id='astro' variant='red'>
-        <Icon name="catppuccin:astro" size={18} class="**:stroke-current w-5" />
-        Astro
-      </ToggleBadge>
-      <ToggleBadge id='remix' variant='lavender'>
-        <Icon name="catppuccin:remix" size={18} class="**:stroke-current w-5" />
-        Remix
-      </ToggleBadge>
-    </div>
+    {Object.entries(groupedTags).map(([key, tags]) => (
+    <Fragment>
+      <SubHeader variant="h3">{key}</SubHeader>
+      <div class="flex flex-wrap gap-ch my-hch">
+        {tags.map((t) => (
+        <ToggleBadge id={t.id} variant={t.color}>
+          <Icon name={t.icon} size={18} class="**:stroke-current w-ch-2" />
+          {t.name}
+        </ToggleBadge>
+        ))}
+      </div>
+    </Fragment>
+    ))}
   </div>
   <Card title="Project 1" subTitle="Subtitle"
     img={{ src: 'https://picsum.photos/200', alt: 'Photo' }}>

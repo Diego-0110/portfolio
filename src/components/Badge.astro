@@ -1,15 +1,14 @@
 ---
 import { cn } from '../utils/tailwind'
+import type { ColorType } from '../constants/colors'
 
-type VariantType = 'pink' | 'mauve' | 'red' | 'peach' | 'yellow' | 'green' | 'teal' | 'blue' |
-'lavender'
 interface LabelProps extends astroHTML.JSX.LabelHTMLAttributes {
   isLabel: true
-  variant?: VariantType
+  variant?: ColorType
 }
 interface DefaultProps {
   isLabel?: false
-  variant?: VariantType
+  variant?: ColorType
   class?: string
 }
 type Props = LabelProps | DefaultProps
