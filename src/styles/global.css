@@ -3,6 +3,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* Catppuccin Frappé */
   --color-rosewater: #F2D5CF;
   --color-flamingo: #EEBEBE;
   --color-pink: #F4B8E4;
@@ -26,9 +27,9 @@
   --color-surface-2: #494D64;
   --color-surface-1: #363A4F;
   --color-surface-0: #24273A;
-  --color-base-color: #181926;
-  --color-mantle: #181825;
-  --color-crust: #11111B;
+  --color-base-color: #181926; /* Catppuccin Macchiato Crust */
+  --color-mantle: #1e2030; /* Catppuccin Macchiato Mantle */
+  --color-crust: #1e2030; /* Catppuccin Macchiato Mantle */
 
   --spacing-hch: 2.425ex;
   --spacing-hch-05: calc(var(--spacing-hch) / 2);
