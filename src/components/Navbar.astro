@@ -1,13 +1,13 @@
 ---
-
 ---
 <nav class="text-lg pb-hch bg-base-color">
   <p class="bg-mantle text-lg max-sm:text-base flex">
     <span class="px-ch bg-blue text-base-color font-bold">
-      DIEGO
+      Diego Q.J.
     </span>
     <!-- TODO: button to go to section -->
-    <span class="px-ch bg-surface-0 text-maroon font-medium">
+    <!-- TODO: default value -->
+    <span id="nav-heading" class="px-ch bg-surface-0 text-maroon font-medium">
       ## Heading
     </span>
     <span class="px-ch">
@@ -15,3 +15,12 @@
     </span>
   </p>
 </nav>
+<script>
+// Change content for span#nav-heading when hash in url change
+window.addEventListener('hashchange', () => {
+  const element = document.querySelector('#nav-heading')
+  if (element) {
+    element.textContent = '## ' + location.hash.slice(1)
+  }
+})
+</script>

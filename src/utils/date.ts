@@ -1,11 +1,6 @@
-interface DateParams {
-  day?: number
-  month: number
-  year?: number
-}
 export function getDateStr({
   day, month, year, locale = 'es-ES'
-}: DateParams & { locale?: string }) {
+}: DateObject & { locale?: string }) {
   const date = new Date(year || 2000, month - 1, day || 1)
   let resStr = ''
   if (day) {
@@ -20,13 +15,16 @@ export function getDateStr({
 }
 
 export function getDateIntervalStr({
-  dateStart, dateEnd, locale = 'es-ES'
-}: { dateStart: DateParams, dateEnd: DateParams, locale?: string }) {
-  let dateStartYear = dateStart.year
-  if (dateStart.year === dateEnd.year) {
+  startDate, endDate, locale = 'es-ES'
+}: { startDate: DateObject, endDate?: DateObject, locale?: string }) {
+  let dateStartYear = startDate.year
+  if (endDate && startDate.year === endDate.year) {
     dateStartYear = undefined
   }
-  const dateStartStr = getDateStr({ ...dateStart, year: dateStartYear, locale })
-  const dateEndStr = getDateStr({ ...dateEnd, locale })
+  const dateStartStr = getDateStr({ ...startDate, year: dateStartYear, locale })
+  if (!endDate) {
+    return `${dateStartStr} - ...`
+  }
+  const dateEndStr = getDateStr({ ...endDate, locale })
   return `${dateStartStr} - ${dateEndStr}`
 }

@@ -2,14 +2,17 @@
 import Section from '../components/Section.astro';
 import Chronology from '../components/Chronology.astro';
 import { getDateIntervalStr } from '../utils/date';
+import { experience } from '../constants/experience';
 ---
 <Section title="Experience" isFirst>
-  <Chronology title="Work 2" subTitle="Role"
+  {experience.map((e) => (
+  <Chronology title={e.role} subTitle={e.companyName}
     date={getDateIntervalStr({
-      dateStart: { month: 1, year: 2024 },
-      dateEnd: { month: 6, year: 2024 },
+      startDate: e.startDate,
+      endDate: e.endDate,
       locale: 'es-ES'
     })}>
-    Description...
+    {e.details}
   </Chronology>
+  ))}
 </Section>

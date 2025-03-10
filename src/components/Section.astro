@@ -16,6 +16,7 @@ const { title, isFirst = false, class: className } = Astro.props
   )}>
   {!isFirst &&
   <Separator level="h2" class="absolute top-0 right-0 left-0" />}
+  <!-- TODO: set id -->
   <Header variant="h2" class="mb-hch">{title}</Header>
   <div class="text-base">
     <slot />
