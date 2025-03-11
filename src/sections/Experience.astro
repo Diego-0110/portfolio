@@ -12,7 +12,7 @@ import { experience } from '../constants/experience';
       endDate: e.endDate,
       locale: 'es-ES'
     })}>
-    {e.details}
+    {e.details && <p>{e.details}</p>}
   </Chronology>
   ))}
 </Section>

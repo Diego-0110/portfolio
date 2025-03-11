@@ -1,11 +1,20 @@
 ---
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
+import { education } from '../constants/education';
+import { getDateIntervalStr } from '../utils/date';
 ---
 <Section title="Education">
-  <Card title="Computer Science" subTitle="UCM">
-    <p>
-      Description...
-    </p>
-  </Card>
+  <div class="space-y-hch">
+    {education.map((e) => (
+    <Card title={e.title} subTitle={e.institutionName}>
+      <p class="mb-hch">
+        {e.details}
+      </p>
+      <p class="text-subtext-0">
+        {getDateIntervalStr({ startDate: e.startDate, endDate: e.endDate })}
+      </p>
+    </Card>
+    ))}
+  </div>
 </Section>
