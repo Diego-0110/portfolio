@@ -1,6 +1,7 @@
 ---
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
+import Anchor from '../components/Anchor.astro';
 import { education } from '../constants/education';
 import { getDateIntervalStr } from '../utils/date';
 ---
@@ -11,6 +12,10 @@ import { getDateIntervalStr } from '../utils/date';
       <p class="mb-hch">
         {e.details}
       </p>
+      {e.certificateUrl &&
+      <p class="mb-hch">
+        <Anchor href={e.certificateUrl} target="_blank">View certificate</Anchor>
+      </p>}
       <p class="text-subtext-0">
         {getDateIntervalStr({ startDate: e.startDate, endDate: e.endDate })}
       </p>

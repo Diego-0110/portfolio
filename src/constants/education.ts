@@ -28,6 +28,7 @@ export const education: EducationInfo[] = [
     endDate: {
       month: 7, year: 2024
     },
-    details: 'Fundamentos Web, React, Redux, Express, Testing Web, GraphQL, TypeScript.'
+    details: 'Fundamentos Web, React, Redux, Express, Testing Web, GraphQL, TypeScript.',
+    certificateUrl: 'https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/3a6d35cfc04ab3e5b4e8f4903d35ab98'
   }
 ]

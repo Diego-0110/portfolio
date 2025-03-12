@@ -2,13 +2,16 @@
 import { cn } from '../utils/tailwind'
 
 interface AnchorProps extends astroHTML.JSX.AnchorHTMLAttributes {
-
+  showUrl?: boolean
 }
 type Props = AnchorProps
-const props = Astro.props
+const { showUrl = false, ...props} = Astro.props
 ---
 <a {...props}
   class={cn(
+    {
+      'show-url': showUrl
+    },
     "text-base font-medium text-blue hover:underline",
     props.class
   )}>
@@ -19,6 +22,9 @@ a::before {
   content: '[ ';
 }
 a::after {
+  content: ' ](...)';
+}
+a.show-url::after {
   content: ' ](' attr(href) ')';
 }
 </style>

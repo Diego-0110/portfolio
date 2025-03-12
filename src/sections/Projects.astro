@@ -7,6 +7,7 @@ import SubHeader from '../components/SubHeader.astro';
 import Anchor from '../components/Anchor.astro';
 import Badge from '../components/Badge.astro';
 import { groupedTags } from '../constants/tags';
+import { projects } from '../constants/projects';
 ---
 <Section title="Projects">
   <div>
@@ -24,30 +25,34 @@ import { groupedTags } from '../constants/tags';
     </Fragment>
     ))}
   </div>
-  <Card title="Project 1" subTitle="Subtitle"
-    img={{ src: 'https://picsum.photos/200', alt: 'Photo' }}>
-    <div class="flex flex-wrap gap-ch">
-      <Badge variant='yellow' class="pr-ch-2">
-        <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
-        JavaScript
-      </Badge>
-      <Badge variant='blue' class="pr-ch-2">
-        <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
-        TypeScript
-      </Badge>
-      <Badge variant='red' class="pr-ch-2">
-        <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
-        HTML
-      </Badge>
-      <Badge variant='lavender'>
-        ...
-      </Badge>
-    </div>
-    <p class="mt-hch">
-      Description...
-    </p>
-    <p class="mt-hch">
-      <Anchor href="#">More...</Anchor>
-    </p>
-  </Card>
+  <div class="space-y-hch">
+    {projects.map((p) => (
+    <Card title={p.name} subTitle={p.subtitle}
+      img={{ src: p.imgUrl, alt: 'Project image' }}>
+      <div class="flex flex-wrap gap-ch">
+        <Badge variant='yellow' class="pr-ch-2">
+          <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
+          JavaScript
+        </Badge>
+        <Badge variant='blue' class="pr-ch-2">
+          <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
+          TypeScript
+        </Badge>
+        <Badge variant='red' class="pr-ch-2">
+          <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
+          HTML
+        </Badge>
+        <Badge variant='lavender'>
+          ...
+        </Badge>
+      </div>
+      <p class="mt-hch">
+        {p.description}
+      </p>
+      <p class="mt-hch">
+        <Anchor href={p.repositoryUrl}>GitHub</Anchor>
+      </p>
+    </Card>
+    ))}
+  </div>
 </Section>
