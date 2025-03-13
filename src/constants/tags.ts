@@ -1,66 +1,89 @@
-import { groupBy } from '../utils/misc';
 import type { ColorType } from './colors';
 type TagType = 'Languages' | 'Frameworks';
 
+export enum TagId {
+  // Languages
+  typescript = 'ts',
+  javascript = 'js',
+  html = 'html',
+  css = 'css',
+  // Frameworks
+  react = 'react',
+  next = 'next',
+  astro = 'astro',
+  remix = 'remix',
+}
+
 interface Tag {
-  id: string
   name: string
   type: TagType
   icon: string
   color: ColorType
 }
 
-export const tags: Tag[] = [
+export const tags: Record<TagId, Tag> = {
   // Languages
-  {
-    id: 'ts',
+  [TagId.typescript]: {
     name: 'TypeScript',
     type: 'Languages',
     icon: 'catppuccin:typescript',
     color: 'blue'
   },
-  {
-    id: 'js',
+  // Frameworks
+  [TagId.javascript]: {
     name: 'JavaScript',
     type: 'Languages',
     icon: 'catppuccin:javascript',
     color: 'yellow'
   },
-  {
-    id: 'html',
+  [TagId.html]: {
     name: 'HTML',
     type: 'Languages',
     icon: 'catppuccin:html',
     color: 'red'
   },
-  {
-    id: 'css',
+  [TagId.css]: {
     name: 'CSS',
     type: 'Languages',
     icon: 'catppuccin:css',
     color: 'mauve'
   },
   // Frameworks
-  {
-    id: 'next',
+  [TagId.react]: {
+    name: 'React',
+    type: 'Frameworks',
+    icon: 'catppuccin:typescript-react',
+    color: 'blue'
+  },
+  [TagId.next]: {
     name: 'Next JS',
     type: 'Frameworks',
     icon: 'catppuccin:next',
     color: 'lavender'
   },
-  {
-    id: 'astro',
+  [TagId.astro]: {
     name: 'Astro',
     type: 'Frameworks',
     icon: 'catppuccin:astro',
     color: 'red'
   },
-  {
-    id: 'remix',
+  [TagId.remix]: {
     name: 'Remix',
     type: 'Frameworks',
     icon: 'catppuccin:remix',
     color: 'lavender'
   }
-]
-export const groupedTags = groupBy<Tag>(tags, 'type')
+}
+
+function groupTags () {
+  const res: Record<string, Record<string, Tag>> = {}
+  for (const [key, value] of Object.entries(tags)) {
+    if (!res[value.type]) {
+      res[value.type] = {}
+    }
+    res[value.type][key] = value
+  }
+  return res
+}
+
+export const groupedTags = groupTags()

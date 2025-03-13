@@ -6,17 +6,17 @@ import { Icon } from 'astro-icon/components';
 import SubHeader from '../components/SubHeader.astro';
 import Anchor from '../components/Anchor.astro';
 import Badge from '../components/Badge.astro';
-import { groupedTags } from '../constants/tags';
+import { groupedTags, tags } from '../constants/tags';
 import { projects } from '../constants/projects';
 ---
 <Section title="Projects">
-  <div>
+  <div class="mb-hch-2">
     {Object.entries(groupedTags).map(([key, tags]) => (
     <Fragment>
       <SubHeader variant="h3">{key}</SubHeader>
       <div class="flex flex-wrap gap-ch my-hch">
-        {tags.map((t) => (
-        <ToggleBadge id={t.id} variant={t.color}>
+        {Object.entries(tags).map(([id, t]) => (
+        <ToggleBadge id={id} variant={t.color}>
           <Icon name={t.icon} size={18} class="**:stroke-current w-ch-2" />
           {t.name}
         </ToggleBadge>
@@ -29,22 +29,16 @@ import { projects } from '../constants/projects';
     {projects.map((p) => (
     <Card title={p.name} subTitle={p.subtitle}
       img={{ src: p.imgUrl, alt: 'Project image' }}>
-      <div class="flex flex-wrap gap-ch">
-        <Badge variant='yellow' class="pr-ch-2">
-          <Icon name="catppuccin:javascript" size={18} class="**:stroke-current w-5" />
-          JavaScript
+      <div class="flex flex-wrap gap-ch my-hch">
+        {p.tags.map((tid) => {
+        const t = tags[tid]
+        return (
+        <Badge variant={t.color}>
+          <Icon name={t.icon} size={18} class="**:stroke-current w-ch-2" />
+          {t.name}
         </Badge>
-        <Badge variant='blue' class="pr-ch-2">
-          <Icon name="catppuccin:typescript" size={18} class="**:stroke-current w-5" />
-          TypeScript
-        </Badge>
-        <Badge variant='red' class="pr-ch-2">
-          <Icon name="catppuccin:html" size={18} class="**:stroke-current w-5" />
-          HTML
-        </Badge>
-        <Badge variant='lavender'>
-          ...
-        </Badge>
+        )
+        })}
       </div>
       <p class="mt-hch">
         {p.description}
