@@ -4,8 +4,9 @@ import { cn } from '../utils/tailwind'
 interface Props {
   variant: 'h1' | 'h2' | 'h3'
   class?: string
+  id?: string
 }
-const { variant, ...props } = Astro.props
+const { variant, class: className, ...props } = Astro.props
 const Component = variant
 ---
 <Component
@@ -16,8 +17,8 @@ const Component = variant
       'text-2xl max-sm:text-xl': variant === 'h2',
       'text-xl max-sm:text-lg': variant === 'h3',
     },
-    props.class
-  )}>
+    className
+  )} {...props}>
   <span
     class={cn('px-ch box-decoration-clone', {
       "bg-blue before:content-['#_']":

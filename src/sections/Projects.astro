@@ -1,7 +1,6 @@
 ---
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
-import ToggleBadge from '../components/ToggleBadge.astro';
 import { Icon } from 'astro-icon/components';
 import SubHeader from '../components/SubHeader.astro';
 import Anchor from '../components/Anchor.astro';
@@ -15,11 +14,11 @@ import { projects } from '../constants/projects';
     <Fragment>
       <SubHeader variant="h3">{key}</SubHeader>
       <div class="flex flex-wrap gap-ch my-hch">
-        {Object.entries(tags).map(([id, t]) => (
-        <ToggleBadge id={id} variant={t.color}>
+        {Object.entries(tags).map(([_id, t]) => (
+        <Badge variant={t.color}>
           <Icon name={t.icon} size={18} class="**:stroke-current w-ch-2" />
           {t.name}
-        </ToggleBadge>
+        </Badge>
         ))}
       </div>
     </Fragment>

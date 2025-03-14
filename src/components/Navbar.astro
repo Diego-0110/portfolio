@@ -1,17 +1,30 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
-<nav class="text-lg pb-hch bg-base-color">
+<nav class="text-lg bg-base-color">
+  <p class="text-lg max-sm:text-base flex">
+    <span class="inline-flex items-center gap-ch">
+      <Icon name="catppuccin:markdown" size={18} class="**:stroke-current w-ch-2" />
+      portfolio.md
+    </span>
+    <!-- TODO: button to go to section -->
+    <!-- TODO: default value -->
+    <span id="nav-heading" class="px-ch text-maroon font-medium">
+      # Cover
+    </span>
+  </p>
   <p class="bg-mantle text-lg max-sm:text-base flex">
     <span class="px-ch bg-blue text-base-color font-bold">
       Diego Q.J.
     </span>
-    <!-- TODO: button to go to section -->
-    <!-- TODO: default value -->
-    <span id="nav-heading" class="px-ch bg-surface-0 text-maroon font-medium">
-      ## Heading
+    <span id="nav-heading" class="px-ch bg-surface-0 text-blue font-medium">
+      stable
     </span>
-    <span class="px-ch">
-      portfolio.md
+    <span id="nav-heading" class="ml-auto px-ch bg-surface-0 text-blue font-medium">
+      ES
+    </span>
+    <span id="nav-heading" class="px-ch bg-surface-0 text-blue font-medium">
+      dark
     </span>
   </p>
 </nav>
