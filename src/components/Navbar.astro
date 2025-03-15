@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 ---
 <nav class="text-lg bg-base-color">
-  <p class="text-lg max-sm:text-base flex">
+  <div class="text-lg max-sm:text-base flex">
     <span class="inline-flex items-center gap-ch">
       <Icon name="catppuccin:markdown" size={18} class="**:stroke-current w-ch-2" />
       portfolio.md
@@ -12,8 +12,8 @@ import { Icon } from 'astro-icon/components';
     <span id="nav-heading" class="px-ch text-maroon font-medium">
       # Cover
     </span>
-  </p>
-  <p class="bg-mantle text-lg max-sm:text-base flex">
+  </div>
+  <div class="bg-mantle text-lg max-sm:text-base flex">
     <span class="px-ch bg-blue text-base-color font-bold">
       Diego Q.J.
     </span>
@@ -23,17 +23,58 @@ import { Icon } from 'astro-icon/components';
     <span id="nav-heading" class="ml-auto px-ch bg-surface-0 text-blue font-medium">
       ES
     </span>
-    <span id="nav-heading" class="px-ch bg-surface-0 text-blue font-medium">
-      dark
-    </span>
-  </p>
+    <div class="px-ch bg-surface-0 text-blue font-medium">
+      <input type="checkbox"
+        id="lightmode-checkbox" name="lightmode" class="peer"
+        hidden
+      >
+      <label for="lightmode-checkbox"
+        class="select-none cursor-pointer peer-checked:*:first:hidden peer-not-checked:*:nth-[2]:hidden">
+        <span>dd</span>
+        <span>ll</span>
+      </label>
+    </div>
+  </div>
 </nav>
 <script>
 // Change content for span#nav-heading when hash in url change
+// TODO: read current hash
 window.addEventListener('hashchange', () => {
   const element = document.querySelector('#nav-heading')
   if (element) {
     element.textContent = '## ' + location.hash.slice(1)
   }
 })
+
+// Light/Dark mode Logic
+
+const lightmodeCheckbox = document.querySelector('#lightmode-checkbox') as HTMLInputElement
+// If 'lightmode' is not set, then use system's color scheme.
+// Also check to see if Media-Queries are supported
+if (localStorage.getItem('lightmode') === null && window.matchMedia) {
+  // When system is in light mode, change checkbox state and class list of html element
+  if(window.matchMedia('(prefers-color-scheme: light)').matches){
+    lightmodeCheckbox.checked = true
+    document.documentElement.classList.add('light')
+  }
+} else {
+  // Default when 'lightmode' is set or Media-Queries are not supported
+  if (localStorage.getItem('lightmode')) {
+    lightmodeCheckbox.checked = true
+    document.documentElement.classList.add('light')
+  }
+}
+lightmodeCheckbox.addEventListener('change',
+  (evt) => {
+    const element = evt.currentTarget as HTMLInputElement
+    if (element) {
+      if (element.checked) {
+        document.documentElement.classList.add('light')
+        localStorage.setItem('lightmode', 'true')
+      } else {
+        document.documentElement.classList.remove('light')
+        localStorage.setItem('lightmode', '')
+      }
+    }
+  })
 </script>
