@@ -3,35 +3,40 @@ import { Icon } from 'astro-icon/components';
 ---
 <nav class="text-lg bg-base-color">
   <div class="text-lg max-sm:text-base flex">
-    <span class="inline-flex items-center gap-ch">
+    <p class="inline-flex items-center gap-ch">
       <Icon name="catppuccin:markdown" size={18} class="**:stroke-current w-ch-2" />
       portfolio.md
-    </span>
+    </p>
     <!-- TODO: button to go to section -->
     <!-- TODO: default value -->
-    <span id="nav-heading" class="px-ch text-maroon font-medium">
+    <p id="nav-heading" class="px-ch text-maroon font-medium">
       # Cover
-    </span>
+    </p>
   </div>
   <div class="bg-mantle text-lg max-sm:text-base flex">
-    <span class="px-ch bg-blue text-base-color font-bold">
+    <p class="px-ch bg-blue text-base-color font-bold">
       Diego Q.J.
-    </span>
-    <span id="nav-heading" class="px-ch bg-surface-0 text-blue font-medium">
+    </p>
+    <p id="nav-heading" class="px-ch bg-surface-0 text-blue font-medium">
       stable
-    </span>
-    <span id="nav-heading" class="ml-auto px-ch bg-surface-0 text-blue font-medium">
+    </p>
+    <div id="nav-heading"
+      class="flex items-center gap-ch ml-auto px-ch bg-surface-0 text-blue font-medium">
+      <Icon name="tabler:language" size={18} class="**:stroke-current w-ch-2" />
       ES
-    </span>
-    <div class="px-ch bg-surface-0 text-blue font-medium">
+    </div>
+    <p id="nav-heading" class="bg-surface-0 text-subtext-0 font-medium">
+      |
+    </p>
+    <div class="px-ch flex items-center bg-surface-0 text-blue font-medium">
       <input type="checkbox"
         id="lightmode-checkbox" name="lightmode" class="peer"
         hidden
       >
       <label for="lightmode-checkbox"
         class="select-none cursor-pointer peer-checked:*:first:hidden peer-not-checked:*:nth-[2]:hidden">
-        <span>dd</span>
-        <span>ll</span>
+        <Icon name="tabler:moon-stars" size={18} class="**:stroke-current w-ch-2" />
+        <Icon name="tabler:sun" size={18} class="**:stroke-current w-ch-2" />
       </label>
     </div>
   </div>
