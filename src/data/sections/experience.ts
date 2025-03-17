@@ -8,7 +8,7 @@ interface ExperienceInfo {
   details?: string
 }
 
-const enExp = [
+const enExp: ExperienceInfo[] = [
   {
     role: 'Internship',
     companyName: 'Gazai Transformación Digital',
@@ -24,7 +24,7 @@ const enExp = [
   }
 ]
 
-const esExp = [
+const esExp: ExperienceInfo[] = [
   {
     role: 'Prácticas',
     companyName: 'Gazai Transformación Digital',

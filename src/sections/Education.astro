@@ -2,12 +2,16 @@
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import Anchor from '../components/Anchor.astro';
-import { education } from '../constants/education';
+import { education } from '../data/sections/education';
 import { getDateIntervalStr } from '../utils/date';
+import { getLangFromUrl, languages } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url)
+const info = education[lang]
+const locale = languages[lang].locale
 ---
-<Section title="Education">
+<Section title={info.title}>
   <div class="space-y-hch">
-    {education.map((e) => (
+    {info.content.map((e) => (
     <Card title={e.title} subTitle={e.institutionName}>
       <p class="mb-hch">
         {e.details}
@@ -17,7 +21,7 @@ import { getDateIntervalStr } from '../utils/date';
         <Anchor href={e.certificateUrl} target="_blank">View certificate</Anchor>
       </p>}
       <p class="text-subtext-0">
-        {getDateIntervalStr({ startDate: e.startDate, endDate: e.endDate })}
+        {getDateIntervalStr({ startDate: e.startDate, endDate: e.endDate, locale })}
       </p>
     </Card>
     ))}
