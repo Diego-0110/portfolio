@@ -1,11 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, languages } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url)
+const langInfo = languages[lang]
 ---
 <nav class="text-lg bg-base-color">
   <div class="text-lg max-sm:text-base flex">
     <p class="inline-flex items-center gap-ch">
-      <Icon name="catppuccin:markdown" size={18} class="**:stroke-current w-ch-2" />
       portfolio.md
+      <Icon name="catppuccin:markdown" size={18} class="**:stroke-current w-ch-2" />
     </p>
     <!-- TODO: button to go to section -->
     <!-- TODO: default value -->
@@ -15,26 +18,29 @@ import { Icon } from 'astro-icon/components';
   </div>
   <div class="bg-mantle text-lg max-sm:text-base flex">
     <p class="px-ch bg-blue text-base-color font-bold">
-      Diego Q.J.
+      Diego
     </p>
-    <p id="nav-heading" class="px-ch bg-surface-0 text-blue font-medium">
+    <p id="nav-heading" class="flex items-center px-ch bg-surface-0 text-blue font-medium">
+      <Icon name="tabler:git-branch" size={18} class="**:stroke-current w-ch-2" />
       stable
     </p>
-    <div id="nav-heading"
-      class="flex items-center gap-ch ml-auto px-ch bg-surface-0 text-blue font-medium">
-      <Icon name="tabler:language" size={18} class="**:stroke-current w-ch-2" />
-      ES
+    <div class="ml-auto bg-surface-0 text-blue font-medium">
+      <a href={`/${lang === 'es'? languages.en.slug : languages.es.slug}`}
+      class="flex items-center px-ch">
+        <Icon name="tabler:language" size={18} class="**:stroke-current w-ch-2" />
+        {langInfo.shortName}
+      </a>
     </div>
     <p id="nav-heading" class="bg-surface-0 text-subtext-0 font-medium">
       |
     </p>
-    <div class="px-ch flex items-center bg-surface-0 text-blue font-medium">
+    <div class="flex items-center bg-surface-0 text-blue font-medium">
       <input type="checkbox"
         id="lightmode-checkbox" name="lightmode" class="peer"
         hidden
       >
       <label for="lightmode-checkbox"
-        class="select-none cursor-pointer peer-checked:*:first:hidden peer-not-checked:*:nth-[2]:hidden">
+        class="px-ch select-none cursor-pointer peer-checked:*:first:hidden peer-not-checked:*:nth-[2]:hidden">
         <Icon name="tabler:moon-stars" size={18} class="**:stroke-current w-ch-2" />
         <Icon name="tabler:sun" size={18} class="**:stroke-current w-ch-2" />
       </label>
