@@ -2,15 +2,18 @@
 import Section from '../components/Section.astro';
 import Chronology from '../components/Chronology.astro';
 import { getDateIntervalStr } from '../utils/date';
-import { experience } from '../constants/experience';
+import { getLangFromUrl, languages } from '../i18n/utils';
+import { experience } from '../data/sections/experience';
+const lang = getLangFromUrl(Astro.url)
+const info = experience[lang]
 ---
-<Section title="Experience" isFirst>
-  {experience.map((e) => (
+<Section title={info.title} isFirst>
+  {info.content.map((e) => (
   <Chronology title={e.role} subTitle={e.companyName}
     date={getDateIntervalStr({
       startDate: e.startDate,
       endDate: e.endDate,
-      locale: 'es-ES'
+      locale: languages[lang].locale
     })}>
     {e.details && <p>{e.details}</p>}
   </Chronology>
