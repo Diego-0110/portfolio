@@ -1,14 +1,16 @@
 import type { ColorType } from '../constants/colors';
 import type { Datai18n } from '../i18n/utils';
-type TagType = 'lang' | 'framework';
+export type TagType = 'lang' | 'framework' | 'libs';
 export const tagTypes: Datai18n<Record<TagType, string>> = {
   en: {
     lang: 'Languages',
-    framework: 'Frameworks'
+    framework: 'Frameworks',
+    libs: 'Libraries',
   },
   es: {
     lang: 'Lenguajes',
-    framework: 'Frameworks'
+    framework: 'Frameworks',
+    libs: 'Librerías',
   }
 }
 
@@ -23,6 +25,9 @@ export enum TagId {
   next = 'next',
   astro = 'astro',
   remix = 'remix',
+  // Libraries
+  zod = 'zod',
+  zustand = 'zustand',
 }
 
 interface Tag {
@@ -40,7 +45,6 @@ export const tags: Record<TagId, Tag> = {
     icon: 'catppuccin:typescript',
     color: 'blue'
   },
-  // Frameworks
   [TagId.javascript]: {
     name: 'JavaScript',
     type: 'lang',
@@ -83,6 +87,19 @@ export const tags: Record<TagId, Tag> = {
     type: 'framework',
     icon: 'catppuccin:remix',
     color: 'lavender'
+  },
+  // Libraries
+  [TagId.zod]: {
+    name: 'Zod',
+    type: 'libs',
+    icon: 'catppuccin:lib',
+    color: 'blue'
+  },
+  [TagId.zustand]: {
+    name: 'Zustand',
+    type: 'libs',
+    icon: 'catppuccin:lib',
+    color: 'peach'
   }
 }
 

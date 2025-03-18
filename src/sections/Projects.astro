@@ -5,14 +5,17 @@ import { Icon } from 'astro-icon/components';
 import SubHeader from '../components/SubHeader.astro';
 import Anchor from '../components/Anchor.astro';
 import Badge from '../components/Badge.astro';
-import { groupedTags, tags } from '../constants/tags';
-import { projects } from '../constants/projects';
+import { groupedTags, tags, tagTypes, type TagType } from '../data/tags';
+import { projects } from '../data/sections/projects';
+import { getLangFromUrl } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url)
+const info = projects[lang]
 ---
-<Section title="Projects">
+<Section title={info.title}>
   <div class="mb-hch-2">
     {Object.entries(groupedTags).map(([key, tags]) => (
     <Fragment>
-      <SubHeader variant="h3">{key}</SubHeader>
+      <SubHeader variant="h3">{tagTypes[lang][key as TagType]}</SubHeader>
       <div class="flex flex-wrap gap-ch my-hch">
         {Object.entries(tags).map(([_id, t]) => (
         <Badge variant={t.color}>
@@ -25,9 +28,9 @@ import { projects } from '../constants/projects';
     ))}
   </div>
   <div class="space-y-hch">
-    {projects.map((p) => (
+    {info.content.map((p) => (
     <Card title={p.name} subTitle={p.subtitle}
-      img={{ src: p.imgUrl, alt: 'Project image' }}>
+      img={{ src: `/projects/${p.imgUrl}`, alt: 'Project image' }}>
       <div class="flex flex-wrap gap-ch my-hch">
         {p.tags.map((tid) => {
         const t = tags[tid]
