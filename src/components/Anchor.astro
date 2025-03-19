@@ -5,15 +5,15 @@ interface AnchorProps extends astroHTML.JSX.AnchorHTMLAttributes {
   showUrl?: boolean
 }
 type Props = AnchorProps
-const { showUrl = false, ...props} = Astro.props
+const { showUrl = false, class: className, ...props} = Astro.props
 ---
 <a {...props}
   class={cn(
     {
       'show-url': showUrl
     },
-    "text-base font-medium text-blue hover:underline",
-    props.class
+    "inline-flex gap-ch items-center text-blue hover:underline",
+    className
   )}>
   <slot />
 </a>
@@ -22,7 +22,7 @@ a::before {
   content: '[ ';
 }
 a::after {
-  content: ' ](...)';
+  content: ' ]';
 }
 a.show-url::after {
   content: ' ](' attr(href) ')';

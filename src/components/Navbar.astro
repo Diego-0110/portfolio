@@ -49,7 +49,11 @@ const langInfo = languages[lang]
 </nav>
 <script>
 // Change content for span#nav-heading when hash in url change
-// TODO: read current hash
+
+const element = document.querySelector('#nav-heading')
+if (element && location.hash.slice(1)) {
+  element.textContent = '## ' + location.hash.slice(1)
+}
 window.addEventListener('hashchange', () => {
   const element = document.querySelector('#nav-heading')
   if (element) {

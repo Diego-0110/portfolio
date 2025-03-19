@@ -5,11 +5,28 @@ interface Props extends astroHTML.JSX.ImgHTMLAttributes {
 }
 const props = Astro.props
 ---
-<div>
+<div class="image-component cursor-zoom-in">
   <img {...props}>
-  <!-- TODO: set not interactive role -->
-  <!-- TODO: full view mode. -->
+  <!-- TODO: make clickable only the image -->
   <p class="text-sm text-subtext-0 select-none">
-    [ {props.alt} ](...)
+    [ {props.alt} ]
   </p>
+  <div hidden
+    class="full-view fixed flex flex-col justify-center items-center p-ch top-0 left-0 cursor-zoom-out bg-base-color/60 h-full w-full">
+    <img class="max-w-2xl max-h-full aspect-square object-cover"
+      src={props.src} alt={props.alt}>
+  </div>
 </div>
+<script>
+for (const element of document.querySelectorAll('.image-component')) {
+  element.addEventListener('click', (evt) => {
+    const container = evt.currentTarget as HTMLDivElement
+    const fullImg = container.querySelector('.full-view') as HTMLDivElement
+    if (fullImg.hasAttribute('hidden')) {
+      fullImg.removeAttribute('hidden')
+    } else {
+      fullImg.setAttribute('hidden', '')
+    }
+  })
+}
+</script>

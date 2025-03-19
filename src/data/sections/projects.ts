@@ -43,7 +43,8 @@ const common = {
       TagId.react,
       TagId.javascript, TagId.html, TagId.css
     ],
-    repositoryUrl: 'https://github.com/Diego-0110/ultimate-tic-tac-toe'
+    repositoryUrl: 'https://github.com/Diego-0110/ultimate-tic-tac-toe',
+    webUrl: 'https://ultimate-tic-tac-toe-6x0.pages.dev/'
   },
 } satisfies Record<string, Partial<ProjectInfo>>
 

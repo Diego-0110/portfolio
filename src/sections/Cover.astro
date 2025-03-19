@@ -2,7 +2,8 @@
 import Header from '../components/Header.astro';
 import SubHeader from '../components/SubHeader.astro';
 import Separator from '../components/Separator.astro';
-import List from '../components/List.astro';
+import Anchor from '../components/Anchor.astro';
+import { Icon } from 'astro-icon/components';
 import { getLangFromUrl } from '../i18n/utils';
 import { cover } from '../data/sections/cover';
 const lang = getLangFromUrl(Astro.url);
@@ -15,15 +16,26 @@ const info = cover[lang]
     </Header>
     <SubHeader variant="h1" class="mb-hch max-sm:mb-8">
       {info.subtitle?.split('/')[0]}
-      <br>
-      && {info.subtitle?.split('/')[1]}
+      {info.subtitle?.split('/').slice(1).map((s) =>(
+      <Fragment>
+        <br>
+        && {s}
+      </Fragment>
+      ))}
     </SubHeader>
-    <List
-      items={[
-        'Item 1',
-        'Item 2'
-      ]}
-      size="lg" class="" />
+    <p class="mb-hch text-xl max-sm:text-lg max-w-2xl">
+      {info.content.intro}
+    </p>
+    <p class="text-xl max-sm:text-lg font-bold">
+      <Anchor href={info.content.github} target="_blank">
+        <Icon name="tabler:brand-github" class="**:stroke-current w-ch-2" />
+        GitHub
+      </Anchor>
+      <Anchor href={info.content.linkedin} target="_blank">
+        <Icon name="tabler:brand-linkedin" class="**:stroke-current w-ch-2" />
+        LinkedIn
+      </Anchor>
+    </p>
     <Separator level="h1" class="absolute bottom-0 left-0 right-0" />
   </div>
 </section>

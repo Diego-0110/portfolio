@@ -30,7 +30,7 @@ const info = projects[lang]
   <div class="space-y-hch">
     {info.content.map((p) => (
     <Card title={p.name} subTitle={p.subtitle}
-      img={{ src: `/projects/${p.imgUrl}`, alt: 'Project image' }}>
+      img={{ src: `/projects/${p.imgUrl}`, alt: 'Project image', loading: 'lazy' }}>
       <div class="flex flex-wrap gap-ch my-hch">
         {p.tags.map((tid) => {
         const t = tags[tid]
@@ -45,8 +45,17 @@ const info = projects[lang]
       <p class="mt-hch">
         {p.description}
       </p>
-      <p class="mt-hch">
-        <Anchor href={p.repositoryUrl}>GitHub</Anchor>
+      <p class="mt-hch font-semibold">
+        <Anchor href={p.repositoryUrl} target="_blank">
+          <Icon name="tabler:brand-github" class="**:stroke-current w-ch-2" />
+          GitHub
+        </Anchor>
+        {p.webUrl && (
+        <Anchor href={p.webUrl} target="_blank">
+          <Icon name="tabler:external-link" class="**:stroke-current w-ch-2" />
+          Web
+        </Anchor>
+        )}
       </p>
     </Card>
     ))}
