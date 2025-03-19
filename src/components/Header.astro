@@ -8,6 +8,14 @@ interface Props {
 }
 const { variant, class: className, ...props } = Astro.props
 const Component = variant
+const variantStyles = {
+  "bg-blue before:content-['#_']":
+  variant === 'h1',
+  "bg-maroon before:content-['##_']":
+  variant === 'h2',
+  "bg-peach before:content-['###_']":
+  variant === 'h3'
+}
 ---
 <Component
   class={cn(
@@ -19,16 +27,24 @@ const Component = variant
     },
     className
   )} {...props}>
+  {props.id? (
+  <a
+    class={cn(
+      'gap-ch px-ch box-decoration-clone cursor-pointer',
+      variantStyles
+    )}
+    href={`#${props.id}`}
+  >
+    <slot />
+  </a>
+  ): (
   <span
-    class={cn('px-ch box-decoration-clone', {
-      "bg-blue before:content-['#_']":
-      variant === 'h1',
-      "bg-maroon before:content-['##_']":
-      variant === 'h2',
-      "bg-peach before:content-['###_']":
-      variant === 'h3'
-    })}
+    class={cn(
+      'px-ch box-decoration-clone',
+      variantStyles
+    )}
   >
     <slot />
   </span>
+  )}
 </Component>

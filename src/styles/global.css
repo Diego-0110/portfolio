@@ -34,8 +34,12 @@
   --spacing-hch: 2.425ex;
   --spacing-hch-05: calc(var(--spacing-hch) / 2);
   --spacing-hch-2: calc(var(--spacing-hch) * 2);
+  --spacing-hch-3: calc(var(--spacing-hch) * 3);
+  --spacing-hch-4: calc(var(--spacing-hch) * 4);
   --spacing-ch: 1ch;
   --spacing-ch-2: 2ch;
+  --spacing-ch-3: 3ch;
+  --spacing-ch-4: 4ch;
 
   --tw-leading: normal;
 }
