@@ -63,21 +63,12 @@ window.addEventListener('hashchange', () => {
 // Light/Dark mode Logic
 
 const lightmodeCheckbox = document.querySelector('#lightmode-checkbox') as HTMLInputElement
-// If 'lightmode' is not set, then use system's color scheme.
-// Also check to see if Media-Queries are supported
-if (localStorage.getItem('lightmode') === null && window.matchMedia) {
-  // When system is in light mode, change checkbox state and class list of html element
-  if(window.matchMedia('(prefers-color-scheme: light)').matches){
-    lightmodeCheckbox.checked = true
-    document.documentElement.classList.add('light')
-  }
-} else {
-  // Default when 'lightmode' is set or Media-Queries are not supported
-  if (localStorage.getItem('lightmode')) {
-    lightmodeCheckbox.checked = true
-    document.documentElement.classList.add('light')
-  }
+// If 'lightmode' is not set, then use dark color scheme.
+if (localStorage.getItem('lightmode')) {
+  lightmodeCheckbox.checked = true
+  document.documentElement.classList.add('light')
 }
+
 lightmodeCheckbox.addEventListener('change',
   (evt) => {
     const element = evt.currentTarget as HTMLInputElement

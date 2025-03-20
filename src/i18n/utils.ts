@@ -17,7 +17,7 @@ export const languages: Record<Language, LanguageInfo> = {
   es: {
     longName: 'Español',
     shortName: 'ES',
-    slug: 'es',
+    slug: '',
     locale: 'es-ES'
   }
 }
