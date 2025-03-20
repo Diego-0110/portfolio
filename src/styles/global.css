@@ -71,6 +71,7 @@
   --color-mantle: #e6e9ef;
   --color-crust: #dce0e8;
 }
+
 :root {
   font-family: "JetBrains Mono Variable", monospace, serif;
   font-optical-sizing: auto;
