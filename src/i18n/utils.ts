@@ -21,7 +21,7 @@ export const languages: Record<Language, LanguageInfo> = {
     locale: 'es-ES'
   }
 }
-export const defaultLang: Language = 'en'
+export const defaultLang: Language = 'es'
 
 export type Datai18n<T> = Record<Language, T>
 

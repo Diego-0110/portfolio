@@ -17,7 +17,7 @@ export const cover: SectionInfo<CoverInfo> = {
     subtitle: 'Front-end Developer/Computer Scientist',
     content: {
       ...common,
-      intro: 'Graduated in computer science with an outstanding record. Self-taught web developer with more than 1 year of experience programming personal web apps.',
+      intro: 'Graduate in computer science with an outstanding record. Self-taught web developer with more than 1 year of experience programming personal web apps.',
     }
   },
   es: {

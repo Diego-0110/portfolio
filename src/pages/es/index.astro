@@ -5,9 +5,11 @@ import Experience from '../../sections/Experience.astro';
 import Education from '../../sections/Education.astro';
 import Projects from '../../sections/Projects.astro';
 import Navbar from '../../components/Navbar.astro';
+const title = 'Diego Quiroga Jaldín - Porfolio';
+const description = 'Desarrollador front-end e ingeniero informático.';
 ---
 
-<Layout title="Portfolio">
+<Layout title={title} description={description}>
   <header class="sticky top-0 z-10 w-full">
     <Navbar />
   </header>

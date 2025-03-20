@@ -1,4 +1,4 @@
-import type { ColorType } from '../constants/colors';
+import type { ColorType, TextColorType } from '../styles/colors';
 import type { Datai18n } from '../i18n/utils';
 export type TagType = 'lang' | 'framework' | 'libs';
 export const tagTypes: Datai18n<Record<TagType, string>> = {
@@ -34,7 +34,7 @@ interface Tag {
   name: string
   type: TagType
   icon: string
-  color: ColorType
+  color: ColorType | TextColorType
 }
 
 export const tags: Record<TagId, Tag> = {
@@ -74,7 +74,7 @@ export const tags: Record<TagId, Tag> = {
     name: 'Next JS',
     type: 'framework',
     icon: 'catppuccin:next',
-    color: 'lavender'
+    color: 'text'
   },
   [TagId.astro]: {
     name: 'Astro',
@@ -86,7 +86,7 @@ export const tags: Record<TagId, Tag> = {
     name: 'Remix',
     type: 'framework',
     icon: 'catppuccin:remix',
-    color: 'lavender'
+    color: 'text'
   },
   // Libraries
   [TagId.zod]: {

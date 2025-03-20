@@ -1,16 +1,21 @@
 ---
+// Supports weights 100-800
+import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css'
 import { getLangFromUrl } from '../i18n/utils'
 interface Props {
   title: string
+  description?: string
 }
-const { title } = Astro.props
+const { title, description } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 ---
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
+    {description && <meta name="description" content={description} />}
+    <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -20,10 +25,3 @@ const lang = getLangFromUrl(Astro.url)
     <slot />
   </body>
 </html>
-
-<style>
-:root {
-  /* TODO: change based on selection */
-  color-scheme: dark;
-}
-</style>
