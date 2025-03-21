@@ -14,12 +14,26 @@ const lang = getLangFromUrl(Astro.url)
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    {description && <meta name="description" content={description} />}
-    <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <!-- Open Graph tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://diego-0110.com/" />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content="https://diego-0110.com/portfolio.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="diego-0110.com" />
+    <meta property="twitter:url" content="https://diego-0110.com" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta property="twitter:description" content={description} />}
+    <meta name="twitter:image" content="https://diego-0110.com/portfolio.png" />
+    <!-- Google site verification -->
+    <meta name="google-site-verification" content="oTUHYkxjDSkvbDW8P5vSbgJo6hCL8amgKPqTb41cDc0" />
   </head>
   <body>
     <slot />
