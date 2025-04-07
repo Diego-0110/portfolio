@@ -17,12 +17,21 @@ interface ProjectInfo {
 
 
 const common = {
+  mittmann: {
+    name: 'Mittmann',
+    imgUrl: 'mittmann.png',
+    tags: [
+      TagId.svelte, TagId.typescript, TagId.tailwind, TagId.vite,
+      TagId.html, TagId.css
+    ],
+    repositoryUrl: 'https://github.com/Diego-0110/mittmann',
+  },
   erraticKeys: {
     name: 'Erratic Keys',
     imgUrl: 'erratic_keys.png',
     tags: [
-      TagId.next, TagId.react, TagId.zustand,
-      TagId.javascript, TagId.html, TagId.css
+      TagId.next, TagId.react, TagId.typescript, TagId.zustand,
+      TagId.tailwind, TagId.html, TagId.css
     ],
     repositoryUrl: 'https://github.com/Diego-0110/erratic-keys',
     webUrl: 'https://erratic-keys.pages.dev/'
@@ -40,7 +49,7 @@ const common = {
     name: 'Ultimate Tic-Tac-Toe',
     imgUrl: 'ultimate_tic_tac_toe.png',
     tags: [
-      TagId.react,
+      TagId.react, TagId.vite,
       TagId.javascript, TagId.html, TagId.css
     ],
     repositoryUrl: 'https://github.com/Diego-0110/ultimate-tic-tac-toe',
@@ -49,6 +58,10 @@ const common = {
 } satisfies Record<string, Partial<ProjectInfo>>
 
 const enProjects: ProjectInfo[] = [
+  {
+    ...common.mittmann,
+    description: 'Chromium-based browser extension to capture HTTP responses from a web page and download the content as a file.',
+  },
   {
     ...common.erraticKeys,
     description: 'Web app to change the output of every keyboard key. For example: instead the key A write the character "a", this key write "😃"',
@@ -64,6 +77,10 @@ const enProjects: ProjectInfo[] = [
 ]
 
 const esProjects: ProjectInfo[] = [
+  {
+    ...common.mittmann,
+    description: 'Extensión para navegadores basados en Chromium que permite capturar respuestas HTTP de una página web y descargar su contenido como un archivo.',
+  },
   {
     ...common.erraticKeys,
     description: 'Aplicación web cambiar el texto de salida de cada tecla del teclado. Por ejemplo: en lugar de que la tecla A genere una "a", puede generar "😃".',
