@@ -22,12 +22,15 @@ export enum TagId {
   css = 'css',
   // Frameworks
   react = 'react',
+  svelte = 'svelte',
   next = 'next',
   astro = 'astro',
   remix = 'remix',
+  vite = 'vite',
   // Libraries
   zod = 'zod',
   zustand = 'zustand',
+  tailwind = 'tailwind'
 }
 
 interface Tag {
@@ -70,6 +73,12 @@ export const tags: Record<TagId, Tag> = {
     icon: 'catppuccin:typescript-react',
     color: 'blue'
   },
+  [TagId.svelte]: {
+    name: 'Svelte',
+    type: 'framework',
+    icon: 'catppuccin:svelte',
+    color: 'red'
+  },
   [TagId.next]: {
     name: 'Next JS',
     type: 'framework',
@@ -88,7 +97,19 @@ export const tags: Record<TagId, Tag> = {
     icon: 'catppuccin:remix',
     color: 'text'
   },
+  [TagId.vite]: {
+    name: 'Vite',
+    type: 'framework',
+    icon: 'catppuccin:vite',
+    color: 'teal'
+  },
   // Libraries
+  [TagId.tailwind]: {
+    name: 'Tailwind',
+    type: 'libs',
+    icon: 'catppuccin:tailwind',
+    color: 'blue'
+  },
   [TagId.zod]: {
     name: 'Zod',
     type: 'libs',
@@ -100,7 +121,7 @@ export const tags: Record<TagId, Tag> = {
     type: 'libs',
     icon: 'catppuccin:lib',
     color: 'peach'
-  }
+  },
 }
 
 function groupTags () {
